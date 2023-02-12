@@ -28,7 +28,7 @@ var climbStairs = function (n) {
   return climbStairs(n - 1) + climbStairs(n - 2)
 }
 
-//用了一个哈希表将已经算过的存储,需要的时候直接用,时间复杂度O(n)
+//用了一个哈希表将已经算过的存储,避免重复运算,时间复杂度O(n)
 const storeMap = new Map()
 var climbStairsOptimize = function (n) {
   if (n === 1) {
