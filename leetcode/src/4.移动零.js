@@ -29,3 +29,18 @@ var moveZeroes = function (nums) {
     nums[index] = item
   })
 }
+
+//双指针法，创建两个指针，快指针遍历到非0时，替换满指针的数，最后将0填满
+var moveZeroes2 = function (nums) {
+  let j = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[j] = nums[i]
+      j++
+    }
+  }
+
+  for (let i = j; i < nums.length; i++) {
+    nums[i] = 0
+  }
+}
