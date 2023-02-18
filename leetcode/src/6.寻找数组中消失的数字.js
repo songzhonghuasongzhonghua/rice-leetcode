@@ -30,4 +30,28 @@ var findDisappearedNumbers = function(nums) {
 
 };
 
-findDisappearedNumbers([4,3,2,7,8,2,3,1])
+// findDisappearedNumbers([4,3,2,7,8,2,3,1])
+
+//官方解法
+
+var officeFindDisappearedNumbers = function (nums) {
+    const n = nums.length
+
+    for(let i = 0; i < n;i++){
+        const x =( nums[i] - 1)  % n //取模,因为下一步操作可能加过n
+        nums[x] += n //下标的位置都加上n,若是接下来小于n
+    }
+
+    const disappearedNums = []
+
+    nums.forEach((item,index) =>{
+        if(item < n +1){
+            disappearedNums.push(index +1)
+        }
+    })
+
+    return disappearedNums
+    
+}
+
+officeFindDisappearedNumbers([4,3,2,7,8,2,3,1])
